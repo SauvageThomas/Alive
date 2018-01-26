@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Food
+  - Solid
+  - Living Thing
   layers:
   - Default
   - TransparentFX
@@ -13,7 +16,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Player
   - 
   - 
   - 
@@ -40,4 +43,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: background
+    uniqueID: 539339861
+    locked: 0
+  - name: Grass
+    uniqueID: 1867045653
+    locked: 0
+  - name: Player
+    uniqueID: 1971176361
+    locked: 0
+  - name: Solid
+    uniqueID: 1749168521
+    locked: 0
+  - name: foreground
+    uniqueID: 2613361749
     locked: 0
