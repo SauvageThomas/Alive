@@ -1,0 +1,556 @@
+fileFormatVersion: 2
+guid: 8fe0847bee3e02146addf55184102284
+timeCreated: 1517097705
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: RobotBoyAttackSprite_0
+    21300002: RobotBoyAttackSprite_1
+    21300004: RobotBoyAttackSprite_2
+    21300006: RobotBoyAttackSprite_3
+    21300008: RobotBoyAttackSprite_4
+    21300010: RobotBoyAttackSprite_5
+    21300012: RobotBoyAttackSprite_6
+    21300014: RobotBoyAttackSprite_7
+    21300016: RobotBoyAttackSprite_8
+    21300018: RobotBoyAttackSprite_9
+    21300020: RobotBoyAttackSprite_10
+    21300022: RobotBoyAttackSprite_11
+    21300024: RobotBoyAttackSprite_12
+    21300026: RobotBoyAttackSprite_13
+    21300028: RobotBoyAttackSprite_14
+    21300030: RobotBoyAttackSprite_15
+    21300032: RobotBoyAttackSprite_16
+    21300034: RobotBoyAttackSprite_17
+    21300036: RobotBoyAttackSprite_18
+    21300038: RobotBoyAttackSprite_19
+    21300040: RobotBoyAttackSprite_20
+    21300042: RobotBoyAttackSprite_21
+    21300044: RobotBoyAttackSprite_22
+    21300046: RobotBoyAttackSprite_23
+    21300048: RobotBoyAttackSprite_24
+    21300050: RobotBoyAttackSprite_25
+    21300052: RobotBoyAttackSprite_26
+    21300054: RobotBoyAttackSprite_27
+    21300056: RobotBoyAttackSprite_28
+    21300058: RobotBoyAttackSprite_29
+    21300060: RobotBoyAttackSprite_30
+    21300062: RobotBoyAttackSprite_31
+    21300064: RobotBoyAttackSprite_32
+    21300066: RobotBoyAttackSprite_33
+    21300068: RobotBoyAttackSprite_34
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 200
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_0
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 1787
+        width: 91
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_1
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 1786
+        width: 92
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_2
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 1787
+        width: 92
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_3
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 1780
+        width: 102
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_4
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 1782
+        width: 106
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_5
+      rect:
+        serializedVersion: 2
+        x: 1461
+        y: 1788
+        width: 108
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_6
+      rect:
+        serializedVersion: 2
+        x: 1733
+        y: 1798
+        width: 109
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_7
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 1515
+        width: 101
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_8
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 1517
+        width: 99
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_9
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 1510
+        width: 96
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_10
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 1509
+        width: 101
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_11
+      rect:
+        serializedVersion: 2
+        x: 1203
+        y: 1518
+        width: 97
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_12
+      rect:
+        serializedVersion: 2
+        x: 1479
+        y: 1497
+        width: 120
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_13
+      rect:
+        serializedVersion: 2
+        x: 1753
+        y: 1495
+        width: 129
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_14
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 1240
+        width: 136
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_15
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 1237
+        width: 137
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_16
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 1243
+        width: 138
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_17
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 1250
+        width: 147
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_18
+      rect:
+        serializedVersion: 2
+        x: 1219
+        y: 1240
+        width: 144
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_19
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 1226
+        width: 151
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_20
+      rect:
+        serializedVersion: 2
+        x: 1764
+        y: 1228
+        width: 144
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_21
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 924
+        width: 123
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_22
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 941
+        width: 112
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_23
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 945
+        width: 101
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_24
+      rect:
+        serializedVersion: 2
+        x: 1208
+        y: 942
+        width: 108
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_25
+      rect:
+        serializedVersion: 2
+        x: 1488
+        y: 942
+        width: 110
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_26
+      rect:
+        serializedVersion: 2
+        x: 1770
+        y: 951
+        width: 107
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_27
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 614
+        width: 104
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_28
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 613
+        width: 92
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_29
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 614
+        width: 92
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RobotBoyAttackSprite_30
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 607
+        width: 92
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

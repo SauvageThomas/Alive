@@ -6,9 +6,9 @@ namespace UnityStandardAssets._2D
     public class Camera2DFollow : MonoBehaviour
     {
         public Transform target;
-        public float damping = 1;
-        public float lookAheadFactor = 3;
-        public float lookAheadReturnSpeed = 0.5f;
+        public float damping = 0.6f;
+        public float lookAheadFactor = 1;
+        public float lookAheadReturnSpeed = 0.7f;
         public float lookAheadMoveThreshold = 0.1f;
 
         private float m_OffsetZ;
