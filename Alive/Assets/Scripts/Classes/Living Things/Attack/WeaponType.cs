@@ -1,0 +1,1 @@
+﻿public enum WeaponType { Sword, LongSword, Dagger, Hammer, Axe, Spear, Bow };
