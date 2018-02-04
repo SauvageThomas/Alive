@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class Creature : LivingThing {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    protected override void Awake() {
+        base.Awake();
+        GameManager.Instance.Register(this);
+        Debug.Log("Je me register");
+    }
+
+    // Use this for initialization
+    protected override void Start() {
+        base.Start();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {

@@ -33,7 +33,7 @@ public class Toolbox : Singleton<Toolbox> {
     private List<MonoBehaviour> dataLoaded;
 
     void Awake() {
-        this.maxID = 0;
+        this.maxID = 1;
     }
 
     public long getID() {
@@ -66,20 +66,39 @@ public class Toolbox : Singleton<Toolbox> {
         CreateDirectory(Path.GetDirectoryName(path));
         FileStream stream = File.Create(path + "_" + id + Instance.dataExtension);
         Debug.Log("Saving at " + path);
-        Debug.Log("The object " + serializableObject);
+
         bf.Serialize(stream, serializableObject);
 
         stream.Close();
     }
 
-    public static T LoadScriptableObject<T>(string path, long id) {
+    public static void SaveScriptableObject<T>(string path, T serializableObject) {
+        path = CombineSaveDirectoryPath(path);
 
-        path = CombineSaveDirectoryPath(path) + "_" + id + Instance.dataExtension;
+        BinaryFormatter bf = new BinaryFormatter();
+
+        CreateDirectory(Path.GetDirectoryName(path));
+        FileStream stream = File.Create(path + Instance.dataExtension);
+        Debug.Log("Saving at " + path);
+
+        bf.Serialize(stream, serializableObject);
+
+        stream.Close();
+    }
+
+    //Return a serialized object from disk. If id != -1 add _id at the end of the name
+    public static T LoadScriptableObject<T>(string path, long id) {
+        if(id == -1) {
+            path = CombineSaveDirectoryPath(path) + Instance.dataExtension;
+        }
+        else {
+            path = CombineSaveDirectoryPath(path) + "_" + id + Instance.dataExtension;
+        }
+        
         Debug.Log("Loading at " + path);
 
         T serializableObject = default(T);
         if (File.Exists(path)) {
-            Debug.Log("Le ficher existe");
 
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(path, FileMode.Open);
@@ -89,6 +108,8 @@ public class Toolbox : Singleton<Toolbox> {
         }
         return serializableObject;
     }
+
+
 
     public static bool SaveDirectoryExists(string directoryName) {
         return Directory.Exists(Path.Combine(Application.persistentDataPath, directoryName));

@@ -43,18 +43,23 @@ public class LivingThing : MonoBehaviour, ITakeDamage, Identifiable {
     protected int NoOfAttacks = 1;
     protected string Weapon;
     protected Vector2 Position;
-    private long id;
+
+    protected long id = -1;
 
     //public void Attack(LivingThing Entity) { Entity.TakeDamage(Strength); }
 
     // Use this for initialization
-    void Awake() {
+    protected virtual void Awake() {
         //this.organism = ScriptableObject.CreateInstance(typeof(Organism)) as Organism;
         //this.organism = AssetBundle.LoadAsset("Organism.asset", typeof(Organism)) as Organism;
-        this.id = Toolbox.Instance.getID();
+        this.organism = Instantiate(this.organism);
         DontDestroyOnLoad(gameObject);
+        gameObject.SetActive(false);
 
-        this.organism = Instantiate(this.organism); //Make a local copy in order to be able to modify it
+    }
+
+    protected virtual void Start() {
+       
 
     }
 
@@ -71,17 +76,36 @@ public class LivingThing : MonoBehaviour, ITakeDamage, Identifiable {
 
     public void Save() {
         this.organism.Save(this.GetType().Name, this.id);
+        //new LivingThingLoader(gameObject.transform.position.x, gameObject.transform.position.y).Save(this.GetType().Name, this.id);
+
     }
 
-    public void Load() {
+    public void Load(float x, float y, long id) {
+        gameObject.SetActive(true);
+        this.id = id;
+
         this.organism.Load(this.GetType().Name, this.id);
+
+        /*LivingThingLoader loader = new LivingThingLoader();
+        loader.Load(this.GetType().Name, this.id);*/
+        gameObject.transform.position = new Vector3(x, y, 0);
+
     }
 
-    long Identifiable.GetID() {
+    public virtual long GetID() {
         return this.id;
     }
 
     void OnApplicationQuit() {
         this.Save();
+    }
+
+    public bool IsVisible() {
+        Vector3 pos = Camera.current.WorldToViewportPoint(transform.position);
+        return pos.x >= 0.0f && pos.x <= 1.0f && pos.y >= 0.0f && pos.y <= 1.0f;
+    }
+
+    public void SetActive(bool active) {
+        gameObject.SetActive(active);
     }
 }

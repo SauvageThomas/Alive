@@ -8,10 +8,13 @@ public class Player : LivingThing {
     protected string[] Skills;
     protected int Money;
 
+    public override long GetID() {
+        return 0;
+    }
 
     // Use this for initialization
-    void Start () {
-		
+    protected override void Start () {
+        this.id = 0;
 	}
 	
 	// Update is called once per frame

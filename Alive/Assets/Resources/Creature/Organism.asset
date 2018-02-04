@@ -11,12 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 211cc1b60e8508d468d13a60904561b2, type: 3}
   m_Name: Organism
   m_EditorClassIdentifier: 
-  data:
-    health:
-      max: 100
-      variation: 0.01
-      current: 100
-    hunger:
-      max: 100
-      variation: 0.01
-      current: 100
+  health:
+    max: 100
+    variation: 0.01
+    current: 100
+  hunger:
+    max: 100
+    variation: 0.01
+    current: 100
