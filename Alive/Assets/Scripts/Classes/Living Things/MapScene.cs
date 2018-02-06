@@ -15,6 +15,10 @@ public class LivingThingData {
         this.type = type;
         this.id = id;
     }
+
+    public override string ToString() {
+        return "id: " + id + " Type: " + type;
+    }
 }
 
 
@@ -27,6 +31,10 @@ public class SceneData {
     public SceneData(Pair<float, float> playerPosition, Dictionary<Pair<float, float>, LivingThingData> creaturesPosition) {
         this.playerPosition = playerPosition;
         this.creaturesPosition = creaturesPosition;
+    }
+
+    public override string ToString() {
+        return "Player Position: " + playerPosition + " Creatures Position: " + Toolbox.ToDebugString<Pair<float, float>, LivingThingData>(creaturesPosition);
     }
 }
 
@@ -59,6 +67,7 @@ public class MapScene : DataManager<SceneData> {
     //======================================
 
     public void AddCreaturePosition(float x, float y, long id, Type type) {
+        Debug.Log("####### J'ajoute une créature #######");
         this.creaturesPosition.Add(new Pair<float, float>(x, y), new LivingThingData(id, type));
     }
 

@@ -13,13 +13,12 @@ public abstract class DataManager<T> : ScriptableObject {
     public void Save(string path, long id) {
 
         Toolbox.SaveScriptableObject<T>(Path.Combine(path, this.GetType().Name), id, this.Data);
-
-        Debug.Log("Data Saved at " + path + "_" + id);
+        Debug.Log("Saving " + this.Data + " at " + path + "_" + id);
     }
 
     public void Save(string path) {
         Toolbox.SaveScriptableObject<T>(path, this.Data);
-        Debug.Log("Data Saved at " + path);
+        Debug.Log("Saving " + this.Data + " at " + path);
     }
 
     public bool Load(string path, long id) {

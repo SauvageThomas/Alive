@@ -54,12 +54,11 @@ public class LivingThing : MonoBehaviour, ITakeDamage, Identifiable {
         //this.organism = AssetBundle.LoadAsset("Organism.asset", typeof(Organism)) as Organism;
         this.organism = Instantiate(this.organism);
         DontDestroyOnLoad(gameObject);
-        gameObject.SetActive(false);
 
     }
 
     protected virtual void Start() {
-       
+
 
     }
 
@@ -96,16 +95,24 @@ public class LivingThing : MonoBehaviour, ITakeDamage, Identifiable {
         return this.id;
     }
 
+    public virtual void SetID(long id) {
+        this.id = id;
+    }
+
     void OnApplicationQuit() {
         this.Save();
     }
 
-    public bool IsVisible() {
+    /*public bool IsVisible() {
         Vector3 pos = Camera.current.WorldToViewportPoint(transform.position);
         return pos.x >= 0.0f && pos.x <= 1.0f && pos.y >= 0.0f && pos.y <= 1.0f;
-    }
+    }*/
 
     public void SetActive(bool active) {
         gameObject.SetActive(active);
+    }
+
+    public void Destroy() {
+        Destroy(gameObject);
     }
 }

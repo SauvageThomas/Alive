@@ -28,6 +28,7 @@ public class GameManager : Singleton<GameManager> {
     private MapScene map;
 
     private string firstScene = "Demo";
+    private bool diskLoading = false;
 
     protected GameManager() { }
 
@@ -51,18 +52,31 @@ public class GameManager : Singleton<GameManager> {
         this.map = ScriptableObject.CreateInstance(typeof(MapScene)) as MapScene;
 
         if (this.map.Load(Path.Combine("Scenes", scene.name))) {
+            this.diskLoading = true;
             Debug.Log(Path.Combine("data/Scenes", scene.name) +" exists");
             this.LoadPlayer();
             this.LoadCreatures();
 
         }
         else {
+            this.AssignID();
             Debug.Log(Path.Combine("data/Scenes", scene.name) + " does not exist");
         }
     }
 
+    private void AssignID() {
+        foreach (Creature creature in this.creatures) {
+            creature.SetID(Toolbox.Instance.getID());
+        }
+    }
+
     private void LoadCreatures() {
-        this.creatures = new List<Creature>(); //Erase the creatures that have registered because we load them from disk
+        foreach(Creature creature in this.creatures) {
+            creature.Destroy();
+        }
+        this.creatures.Clear(); //Erase the creatures that have registered because we load them from disk
+
+        Debug.Log("At init there is " + creatures.Count + " creatures");
 
         foreach (KeyValuePair<Pair<float, float>, LivingThingData> creaturePosition in this.map.CreaturesPosition) {
             GameObject gameObject = null;
@@ -75,7 +89,10 @@ public class GameManager : Singleton<GameManager> {
             creature.Load(creaturePosition.Key.first, creaturePosition.Key.second, creaturePosition.Value.id);
 
             this.creatures.Add(creature);
+            Debug.Log("Adding new creature : " + creaturePosition.Value.id);
         }
+
+        Debug.Log("There is " + creatures.Count + " creatures");
 
         /*foreach(Creature creature in this.creatures) {
             creature.Load(Toolbox.Instance.getID());
@@ -83,12 +100,7 @@ public class GameManager : Singleton<GameManager> {
     }
 
     void FixedUpdate() {
-        foreach (Creature creature in this.creatures) {
-            Debug.Log("is the creature visible ?");
-            if (creature.IsVisible()) {
-                creature.SetActive(true);
-            }
-        }
+
     }
 
     private void LoadPlayer() {
@@ -98,15 +110,20 @@ public class GameManager : Singleton<GameManager> {
 
     //All creature call it to register to the GameManager
     public void Register(Creature creature) {
-        this.creatures.Add(creature);
-        Debug.Log("registering !!!!!!");
+        if (!this.diskLoading) {
+            this.creatures.Add(creature);
+        }      
     }
 
     void OnApplicationQuit() {
+        //Reset the map and add the new Creatures
+        this.map = ScriptableObject.CreateInstance(typeof(MapScene)) as MapScene;
+
         this.map.PlayerX = player.gameObject.transform.position.x;
         this.map.PlayerY = player.gameObject.transform.position.y;
-
+        Debug.Log("Saving the scene ...");
         foreach (Creature creature in this.creatures) {
+            Debug.Log("ID : "+ creature.GetID());
             this.map.AddCreaturePosition(creature.transform.position.x, creature.transform.position.y, creature.GetID(), creature.GetType()); 
         }
 

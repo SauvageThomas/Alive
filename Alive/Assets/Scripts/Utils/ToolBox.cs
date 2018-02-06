@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Runtime.Serialization;
+using System.Linq;
 
 static public class MethodExtensionForMonoBehaviourTransform {
     /// <summary>
@@ -119,5 +120,9 @@ public class Toolbox : Singleton<Toolbox> {
     public class Language {
         public string current;
         public string lastLang;
+    }
+
+    public static string ToDebugString<TKey, TValue>(IDictionary<TKey, TValue> dictionary) {
+        return "{" + string.Join(",", dictionary.Select(kv => kv.Key + "=" + kv.Value).ToArray()) + "}";
     }
 }
