@@ -59,19 +59,6 @@ public class Toolbox : Singleton<Toolbox> {
         }
     }
 
-    public static void SaveScriptableObject<T>(string path, long id, T serializableObject) {
-        path = CombineSaveDirectoryPath(path);
-
-        BinaryFormatter bf = new BinaryFormatter();
-
-        CreateDirectory(Path.GetDirectoryName(path));
-        FileStream stream = File.Create(path + "_" + id + Instance.dataExtension);
-        Debug.Log("Saving at " + path);
-
-        bf.Serialize(stream, serializableObject);
-
-        stream.Close();
-    }
 
     public static void SaveScriptableObject<T>(string path, T serializableObject) {
         path = CombineSaveDirectoryPath(path);
@@ -88,14 +75,12 @@ public class Toolbox : Singleton<Toolbox> {
     }
 
     //Return a serialized object from disk. If id != -1 add _id at the end of the name
-    public static T LoadScriptableObject<T>(string path, long id) {
-        if(id == -1) {
-            path = CombineSaveDirectoryPath(path) + Instance.dataExtension;
-        }
-        else {
-            path = CombineSaveDirectoryPath(path) + "_" + id + Instance.dataExtension;
-        }
-        
+    public static T LoadScriptableObject<T>(string path) {
+
+        path = CombineSaveDirectoryPath(path) + Instance.dataExtension;
+
+
+
         Debug.Log("Loading at " + path);
 
         T serializableObject = default(T);

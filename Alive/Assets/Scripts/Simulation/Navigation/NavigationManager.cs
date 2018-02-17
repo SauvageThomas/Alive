@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class NavigationManager : MonoBehaviour {
+public class NavigationManager : Singleton<NavigationManager> {
 
     public static Dictionary<string, string> RouteInformation = new Dictionary<string, string>() {
     { "World", "The big bad world"},
@@ -17,10 +18,10 @@ public class NavigationManager : MonoBehaviour {
     }
 
     public static void NavigateTo(string destination) {
-        // The following line is commented out for now 
-        // as we have nowhere to go :D
-        //Application.LoadLevel(destination);
-
+        Debug.Log("Loading Scene : " + destination);
+        Route route = new Route(destination, destination, SceneManager.GetActiveScene().name);
+        GameManager.Instance.NavigateTo(route);
+        
     }
 
 

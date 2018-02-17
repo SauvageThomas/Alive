@@ -14,7 +14,8 @@ public class NavigationPrompt : MonoBehaviour {
     }
 
     void OnCollisionExit2D(Collision2D col) {
-        showDialog = false;
+        //showDialog = false;
+
     }
 
 

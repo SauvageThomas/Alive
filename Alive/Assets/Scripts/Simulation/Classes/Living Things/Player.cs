@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : LivingThing {
 
+
     protected string[] Inventory;
     protected string[] Skills;
     protected int Money;
@@ -21,4 +22,9 @@ public class Player : LivingThing {
 	void Update () {
 		
 	}
+
+
+
+
+
 }

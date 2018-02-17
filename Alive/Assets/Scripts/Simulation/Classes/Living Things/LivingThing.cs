@@ -74,7 +74,7 @@ public class LivingThing : MonoBehaviour, ITakeDamage, Identifiable {
     }
 
     public void Save() {
-        this.organism.Save(this.GetType().Name, this.id);
+        this.organism.Save(this.organism.GetType().Name + "_" + id);
         //new LivingThingLoader(gameObject.transform.position.x, gameObject.transform.position.y).Save(this.GetType().Name, this.id);
 
     }
@@ -83,7 +83,7 @@ public class LivingThing : MonoBehaviour, ITakeDamage, Identifiable {
         gameObject.SetActive(true);
         this.id = id;
 
-        this.organism.Load(this.GetType().Name, this.id);
+        this.organism.Load(this.organism.GetType().Name + "_" + id);
 
         /*LivingThingLoader loader = new LivingThingLoader();
         loader.Load(this.GetType().Name, this.id);*/
@@ -114,5 +114,9 @@ public class LivingThing : MonoBehaviour, ITakeDamage, Identifiable {
 
     public void Destroy() {
         Destroy(gameObject);
+    }
+
+    public void Move(Transform transform) {
+        this.gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
     }
 }

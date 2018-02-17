@@ -32,7 +32,9 @@ public class GameManager : Singleton<GameManager> {
 
     protected GameManager() { }
 
-
+    private Route currentRoute;
+    [SerializeField]
+    private Camera mainCamera;
 
     // Use this for initialization
     void Awake() {
@@ -41,8 +43,31 @@ public class GameManager : Singleton<GameManager> {
 
         this.LoadScene();
         this.player.SetActive(true);
-        
 
+        SceneManager.activeSceneChanged += SceneChanged;
+
+
+    }
+
+    public void NavigateTo(Route route) {
+        this.currentRoute = route;
+        SceneManager.LoadScene(route.scene);
+       
+    }
+
+    private void SceneChanged(Scene previousScene, Scene currentScene) {
+
+        //TODO: Afficher la description
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("Respawn")) {
+            if(go.name.Equals("spawn"+ this.currentRoute.spawn)){
+                Debug.Log("OKKKK");
+                this.player.Move(go.transform);
+                
+            }
+            Debug.Log(go.name);
+            Debug.Log("spawn" + this.currentRoute.spawn);
+        }
+        
     }
 
     private void LoadScene() {
