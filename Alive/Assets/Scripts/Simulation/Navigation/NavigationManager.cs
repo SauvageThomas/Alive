@@ -5,23 +5,29 @@ using UnityEngine.SceneManagement;
 
 public class NavigationManager : Singleton<NavigationManager> {
 
-    public static Dictionary<string, string> RouteInformation = new Dictionary<string, string>() {
+    [SerializeField]
+    private bool navigate = true;
+    public bool Navigate {
+        get { return navigate; }
+        set { navigate = value; }
+    }
+
+    public Dictionary<string, string> RouteInformation = new Dictionary<string, string>() {
     { "World", "The big bad world"},
     { "Cave", "The deep dark cave"},};
 
-    public static string GetRouteInfo(string destination) {
+    public string GetRouteInfo(string destination) {
         return RouteInformation.ContainsKey(destination) ? RouteInformation[destination] : null;
     }
 
-    public static bool CanNavigate(string destination) {
-        return true;
-    }
+    public void NavigateTo(string destination) {
+        if (this.navigate) {
+            this.navigate = false;
+            Debug.Log("Loading Scene : " + destination);
+            Route route = new Route(destination, destination, SceneManager.GetActiveScene().name);
+            GameManager.Instance.NavigateTo(route);
+        }
 
-    public static void NavigateTo(string destination) {
-        Debug.Log("Loading Scene : " + destination);
-        Route route = new Route(destination, destination, SceneManager.GetActiveScene().name);
-        GameManager.Instance.NavigateTo(route);
-        
     }
 
 

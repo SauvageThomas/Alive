@@ -14,7 +14,7 @@ public class GameManager : Singleton<GameManager> {
         private set { }
     }
 
-    
+
     private List<Creature> creatures = new List<Creature>();
 
 
@@ -24,6 +24,8 @@ public class GameManager : Singleton<GameManager> {
         get { return creaturePrefab; }
         private set { }
     }
+
+    public object SceneChanger { get; private set; }
 
     private MapScene map;
 
@@ -44,30 +46,56 @@ public class GameManager : Singleton<GameManager> {
         this.LoadScene();
         this.player.SetActive(true);
 
-        SceneManager.activeSceneChanged += SceneChanged;
+        //SceneManager.activeSceneChanged += SceneChanged;
 
 
     }
 
     public void NavigateTo(Route route) {
         this.currentRoute = route;
-        SceneManager.LoadScene(route.scene);
-       
+
+        Action postLoad = () => {
+            foreach (GameObject go in GameObject.FindGameObjectsWithTag("Respawn")) {
+                if (go.name.Equals("spawn" + this.currentRoute.spawn)) {
+                    this.player.Move(go.transform);
+
+                }
+                Debug.Log(go.name);
+                Debug.Log("spawn" + this.currentRoute.spawn);
+            }
+        };
+
+        StartCoroutine(ChangeScene(route, postLoad));
+
+        //SceneManager.LoadScene(route.scene);
+
     }
 
-    private void SceneChanged(Scene previousScene, Scene currentScene) {
+    public IEnumerator ChangeScene(Route route, Action action) {
 
         //TODO: Afficher la description
-        foreach (GameObject go in GameObject.FindGameObjectsWithTag("Respawn")) {
-            if(go.name.Equals("spawn"+ this.currentRoute.spawn)){
-                Debug.Log("OKKKK");
-                this.player.Move(go.transform);
-                
-            }
-            Debug.Log(go.name);
-            Debug.Log("spawn" + this.currentRoute.spawn);
+        bool loaded = false;
+        bool unloaded = false;
+
+        if (!loaded) {
+            Debug.Log("FIRST !!!!");
+            loaded = true;
+            yield return SceneManager.LoadSceneAsync(route.scene, LoadSceneMode.Additive);
         }
-        
+
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(route.scene));
+
+        action();
+
+        if (!unloaded) {
+            unloaded = true;
+            Debug.Log("SECOND !!!!");
+            yield return new WaitForEndOfFrame();
+            SceneManager.UnloadSceneAsync(route.spawn);
+        }
+
+        NavigationManager.Instance.Navigate = true;
+
     }
 
     private void LoadScene() {
@@ -78,7 +106,7 @@ public class GameManager : Singleton<GameManager> {
 
         if (this.map.Load(Path.Combine("Scenes", scene.name))) {
             this.diskLoading = true;
-            Debug.Log(Path.Combine("data/Scenes", scene.name) +" exists");
+            Debug.Log(Path.Combine("data/Scenes", scene.name) + " exists");
             this.LoadPlayer();
             this.LoadCreatures();
 
@@ -96,7 +124,7 @@ public class GameManager : Singleton<GameManager> {
     }
 
     private void LoadCreatures() {
-        foreach(Creature creature in this.creatures) {
+        foreach (Creature creature in this.creatures) {
             creature.Destroy();
         }
         this.creatures.Clear(); //Erase the creatures that have registered because we load them from disk
@@ -130,14 +158,14 @@ public class GameManager : Singleton<GameManager> {
 
     private void LoadPlayer() {
         this.player.Load(this.map.PlayerX, this.map.PlayerY, 0);
-        
+
     }
 
     //All creature call it to register to the GameManager
     public void Register(Creature creature) {
         if (!this.diskLoading) {
             this.creatures.Add(creature);
-        }      
+        }
     }
 
     void OnApplicationQuit() {
@@ -148,8 +176,8 @@ public class GameManager : Singleton<GameManager> {
         this.map.PlayerY = player.gameObject.transform.position.y;
         Debug.Log("Saving the scene ...");
         foreach (Creature creature in this.creatures) {
-            Debug.Log("ID : "+ creature.GetID());
-            this.map.AddCreaturePosition(creature.transform.position.x, creature.transform.position.y, creature.GetID(), creature.GetType()); 
+            Debug.Log("ID : " + creature.GetID());
+            this.map.AddCreaturePosition(creature.transform.position.x, creature.transform.position.y, creature.GetID(), creature.GetType());
         }
 
         this.map.Save(Path.Combine("Scenes", SceneManager.GetActiveScene().name));

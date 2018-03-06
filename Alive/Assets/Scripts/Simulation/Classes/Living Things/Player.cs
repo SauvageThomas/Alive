@@ -9,6 +9,11 @@ public class Player : LivingThing {
     protected string[] Skills;
     protected int Money;
 
+    protected override void Awake() {
+        base.Awake();
+        DontDestroyOnLoad(gameObject);
+    }
+
     public override long GetID() {
         return 0;
     }

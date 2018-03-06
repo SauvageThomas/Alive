@@ -53,7 +53,7 @@ public class LivingThing : MonoBehaviour, ITakeDamage, Identifiable {
         //this.organism = ScriptableObject.CreateInstance(typeof(Organism)) as Organism;
         //this.organism = AssetBundle.LoadAsset("Organism.asset", typeof(Organism)) as Organism;
         this.organism = Instantiate(this.organism);
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
     }
 

@@ -8,7 +8,7 @@ public class NavigationPrompt : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D col) {
         //Only allow the player to travel if allowed
-        if (NavigationManager.CanNavigate(this.tag)) {
+        if (NavigationManager.Instance.Navigate) {
             showDialog = true;
         }
     }
@@ -35,7 +35,7 @@ public class NavigationPrompt : MonoBehaviour {
             //Player wants to leave this location
             if (GUI.Button(new Rect(55, 100, 180, 40), "Travel")) {
                 showDialog = false;
-                NavigationManager.NavigateTo(this.tag);
+                NavigationManager.Instance.NavigateTo(this.tag);
             }
 
             //Player wants to stay at this location
